@@ -117,6 +117,12 @@ public class GamePanel extends JPanel {
         }
     }
 
+    public void updateGame() {
+
+        updateAnimationTick();
+        setAnimation();
+        updatePos();
+    }
     public void paintComponent(Graphics g) {
         //paintComponent is a magic method. JPanel calls it automatically upon window startup
         //What actually allous the method to paint is the Graphics method. That's why we pass an object Graphics onto it
@@ -125,10 +131,6 @@ public class GamePanel extends JPanel {
         //For JPanel to call the correct method inside JComponent (JPanel's parent class), we must use:
         super.paintComponent(g);
         //this calls the super method already built within the JComponent class to be used in our paintComponent method.
-
-        updateAnimationTick();
-        setAnimation();
-        updatePos();
 
         g.drawImage(animations[playerAction][aniIndex], (int)xDelta, (int)yDelta, 256, 160, null);
         
