@@ -44,20 +44,14 @@ public class Playing extends State implements Statemethods {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseMoved'");
     }
 
     @Override
@@ -72,6 +66,9 @@ public class Playing extends State implements Statemethods {
                 break;
             case KeyEvent.VK_SPACE:
                 player.setJump(true);
+                break;
+            case KeyEvent.VK_BACK_SPACE:
+                Gamestate.state = Gamestate.MENU;
                 break;
         }
     }

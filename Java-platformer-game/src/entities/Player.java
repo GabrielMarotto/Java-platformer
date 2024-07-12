@@ -20,7 +20,7 @@ public class Player extends Entity {
     private int playerAction = IDLE;
     private boolean moving = false, attacking = false;
     private boolean left, up, right, down, jump;
-    private float playerSpeed =1.5f;
+    private float playerSpeed =1.5f * Game.SCALE;
     private int[][] lvlData;
     private float xDrawOffset = 21 * Game.SCALE, yDrawOffset = 4 * Game.SCALE;
     
@@ -34,7 +34,7 @@ public class Player extends Entity {
     public Player(float x, float y, int width, int height) {
         super(x, y, width, height);
         loadAnimations();
-        initHitbox(x, y, 20*Game.SCALE, 27*Game.SCALE);
+        initHitbox(x, y, (20*Game.SCALE), (27*Game.SCALE));
     }
 
     public void update() {
@@ -65,11 +65,11 @@ public class Player extends Entity {
     private void setAnimation() {
         int startAni = playerAction;
 
-        if (moving) {
+        if (moving) 
             playerAction = RUNNING;
-        } else {
+        else 
             playerAction = IDLE;
-        }
+        
 
         if (inAir) {
             if(airSpeed < 0) 
@@ -105,13 +105,13 @@ public class Player extends Entity {
 
         float xSpeed = 0; 
 
-        if (left) { 
-            xSpeed =- playerSpeed;
-        } 
+        if (left) 
+            xSpeed -= playerSpeed;
+        
 
-        if (right) {
+        if (right) 
             xSpeed+= playerSpeed;
-        } 
+        
 
         if (!inAir) 
             if(!isEntityOnFloor(hitbox, lvlData)) 
