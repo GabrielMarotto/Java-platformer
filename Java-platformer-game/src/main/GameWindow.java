@@ -15,9 +15,9 @@ public class GameWindow {
                     
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.add(gamePanel); //Necessaaaaaaaaaary to join the JFrame and JPanel together. Also passin in a Jpanel(GamePanel in this case) in the method parameters.
-        jframe.setLocationRelativeTo(null);//Makes frame appear in the middle of the screen
         jframe.setResizable(false);
         jframe.pack(); //Telling JFrame to adjust to the size of the JPanel.
+        jframe.setLocationRelativeTo(null);//Makes frame appear in the middle of the screen
         jframe.setVisible(true); //must be on the bottom of function stack
 
         jframe.addWindowFocusListener(new WindowFocusListener() {
